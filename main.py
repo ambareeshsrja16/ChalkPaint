@@ -24,7 +24,7 @@ class Chalk_Point:
         :return:
         """
 
-        #TODO
+        # TODO
         assert isinstance(url_request, str)
 
         cache_check_inst =  self.check_in_cache(url_request)
@@ -33,7 +33,7 @@ class Chalk_Point:
             return cache_check_inst.content
 
         else:
-            #TODO
+            # TODO
             _content = self.request_server(url_request)
 
             cache_response = self.store_in_cache(url_request, _content)
@@ -47,6 +47,7 @@ class Chalk_Point:
             else:
                 #TODO
                 #TODO Document how to deal with this!
+                # TODO Add to test suite
                 print("Not cached! Cache Error")
 
     def check_in_cache(self, url_request):
@@ -62,11 +63,9 @@ class Chalk_Point:
             cache_check_inst.found = True
             cache_check_inst.content = self.main_cache.dictionary[url_request]
 
-        #TODO Add provision for secondary checks and other cache policies here
-
+        # TODO Add provision for secondary checks and other cache policies here
 
         return cache_check_inst
-
 
     def store_in_cache(self, url_request, content):
         """
@@ -74,22 +73,34 @@ class Chalk_Point:
         :param content:
         :return:
         """
-
+        caching_response = True
         try:
-            self.main_cache[url_request] = content
-        except
+            self.main_cache.dictionary[url_request] = content
+        except Exception as e:
+            # TODO
+            # TODO Add to test suite
+            print(f"Cache unsuccessful | Exception raised : {e}")
+            caching_response = False
+
+        return caching_response
 
     def request_server(self, url_request):
         """
+        Prototype - DO NOT use for production!
+
+        Source: https://docs.python.org/3/library/http.server.html
+        WARNING: http.server is not recommended for production. It only implements basic security checks.
 
         :param url_request:
         :return:
         """
 
+
 class Cache_check:
     def __init__(self):
         self.found = False
         self.content = None
+
 
 
 class URL_Content_Hashmap:
@@ -117,6 +128,10 @@ class URL_Content_Hashmap:
             return False
 
 
+if __name__ == '__main__':
+    print("Start Chalk_Paint Proxy Server for Testing")
+    # Initialize test cases and run them here!
+    # TODO
 
 
 
