@@ -10,7 +10,7 @@ cache = Cache(size_of_cache=1000)  #Ideally figure out from average request rate
 def proxy(path=""):
     #  DEBUG
     # print(f"Proxy Running successfully")
-    SCHEME_PREFIX = "http://"
+    SCHEME_PREFIX = "https://"
     url_bits = request.url.split("?", 1)
     qs = "?" + url_bits[1] if len(url_bits) > 1 else ""  # queries
 
