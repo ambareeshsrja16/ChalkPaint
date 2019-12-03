@@ -1,29 +1,21 @@
-from collections import namedtuple
-
-class Chalk_Point:
+class Cache:
     def __init__(self,
-                 size_of_cache,
-                 website_server,
-                 caching_policy):
+                 size_of_cache=100,
+                 caching_policy=1):
         """
         :param size_of_cache:
         :param website_server:
         :param caching_policy:
         """
-
         self.size_of_cache = size_of_cache
-        self.website_server = website_server
         self.caching_policy = caching_policy
-
         self.main_cache = URL_Content_Hashmap(max_size=self.size_of_cache)
 
     def fetch_content(self, url_request):
         """
-
         :param url_request:
         :return:
         """
-
         # TODO
         assert isinstance(url_request, str)
 
@@ -129,7 +121,7 @@ class URL_Content_Hashmap:
 
 
 if __name__ == '__main__':
-    print("Start Chalk_Paint Proxy Server for Testing")
+    print("Start Proxy Server for Testing")
     # Initialize test cases and run them here!
     # TODO
 
